@@ -1,177 +1,211 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>
-        Bootstrap Task 5
-    </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="BS_Task_5.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_TASK_5</title>
+    <style>
+        .warning-field
+        {
+            border-color: red;
+            color:red;
+        }
+        .warning-text
+        {
+            color:red;
+        }
+        .success-field
+        {
+            border-color: green;
+            color:green;
+        }
+        .success-text
+        {
+            color:green;
+        }
+        a:link
+        {
+            text-decoration: none;
+            color:black;
+        }
+        a:hover
+        {
+            text-decoration: none;
+        }
+        input:focus,textarea:focus
+        {
+            outline:none;
+        }
 
+    </style>
+</head>
 <body>
-    <div class="gr container" style="width: 600px;">
-        <form class="frm needs-validation" novalidate>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    First Name
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
-                        <input type="text" class="form-control" required placeholder="First Name">
-                        <div class="invalid-feedback">
-                            Please supply your First Name!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    Last Name
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
-                        <input type="text" class="form-control" required placeholder="Last Name">
-                        <div class="invalid-feedback">
-                            Please supply your Last Name!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    E-mail
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                        <input type="text" class="form-control" required placeholder="E-Mail Address">
-                        <div class="invalid-feedback">
-                            Please supply your Email!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    Phone #
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></div>
-                        <input type="text" class="form-control" required placeholder="(845)555-1212">
-                        <div class="invalid-feedback">
-                            Please supply your Phone Number!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    Address
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-home" aria-hidden="true"></i></div>
-                        <input type="text" class="form-control" required placeholder="Address">
-                        <div class="invalid-feedback">
-                            Please supply your Address!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    City
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-home" aria-hidden="true"></i></div>
-                        <input type="text" class="form-control" required placeholder="city">
-                        <div class="invalid-feedback">
-                            Please supply your City!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    State
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-list" aria-hidden="true"></i></div>
-                        <select class="form-select cust-width">
-                            <option selected>Please select your State</option>
-                            <option value="1">Assam</option>
-                            <option value="2">Madhya Pradesh</option>
-                            <option value="3">Delhi</option>
-                            <option value="4">Kerala</option>
-                            <option value="5">Rajasthan</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4">
-                    Do you have hosting?
-                </div>
-                <div class="col-8">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                            value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                            value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            No
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-4 lbl">
-                    Project Description
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <div class="input-group-text"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                        <textarea class="form-control" required placeholder="Project Description"></textarea>
-                        <div class="invalid-feedback">
-                            Please supply your Project Description!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-warning">
-                    Send <i class="fa fa-plane" aria-hidden="true"></i>
-                </button>
-            </div>
+    <div>
+        <form novalidate id="form">
+            <table>
+                <tr>
+                    <td><label for="n">Name:</label></td>
+                    <td><input type="text" id ="n" placeholder="Example Example"></td>
+                    <td><em  class="warning-text" id="o1"></em></td>
+                </tr>
+                <tr>
+                    <td><label for="e">Email:</label></td>
+                    <td><input type="email" id ="e" placeholder="exam@exam.com"></td>
+                    <td><p class="warning-text" id="o2"></p></td>
+                </tr>
+                <tr>
+                    <td><label for="link">Website:</label></td>
+                    <td><input type="url" id ="link" placeholder="www.example.com"></td>
+                    <td><p class="warning-text" id="o3"></p></td>
+                </tr>
+                <tr>
+                    <td><label for="msg">Message:</label></td>
+                    <td><textarea id="msg" cols="30" rows="5"></textarea></td>
+                    <td><p class="warning-text" id="o4"></p></td>
+                </tr>
+            </table>
+            <button type="submit" id="end" >Submit</button>
         </form>
     </div>
+    
     <script>
-        (() => {
-            'use strict'
-            const forms = document.querySelectorAll('.needs-validation')
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
+        const submit = document.getElementById("end");
+        const name = document.getElementById("n");
+        const email = document.getElementById("e");
+        const link = document.getElementById("link");
+        const msg = document.getElementById("msg");
+        const o1 = document.getElementById("o1");
+        const o2 = document.getElementById("o2");
+        const o3 = document.getElementById("o3");
+        const o4 = document.getElementById("o4");
+        let link_state=0,name_state=0,email_state=0,msg_state=0;
 
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
+        const form = document.getElementById('form')
+        function handleForm(event) { event.preventDefault(); } 
+        form.addEventListener('submit', handleForm);
+
+        name.oninput = ()=>
+        {
+            let name_var = name.value;
+            o1.removeAttribute('class');
+            n.removeAttribute('class');
+            if(!name_var)
+            {
+                o1.classList.add('warning-text');
+                o1.innerText="This field is required!";
+                n.classList.add('warning-field');
+                name_state=0;
+
+            }
+            else if(!/^[A-Za-z ]+$/.test(name_var))
+            {
+                o1.classList.add('warning-text');
+                o1.innerText="Invalid Name!";
+                n.classList.add('warning-field');
+                name_state=0;
+
+            }
+            else
+            {
+                o1.classList.add('success-text');
+                o1.innerText="Valid Name!";
+                n.classList.add('success-field')
+                name_state=1;
+            }
+        }
+        email.oninput = ()=>
+        {
+            let email_var = email.value;
+            o2.removeAttribute('class');
+            e.removeAttribute('class');
+            if(!email_var)
+            {
+                o2.classList.add('warning-text');
+                o2.innerText="This field is required!";
+                e.classList.add('warning-field');
+                email_state=0;
+
+            }
+            else if(!/^[0-9a-zA-Z]+[@]{1}[a-zA-Z]+[\.]{1}com$/.test(email_var))
+            {
+                o2.classList.add('warning-text');
+                o2.innerText="Invalid email!";
+                e.classList.add('warning-field');
+                email_state=0;
+
+            }
+            else
+            {
+                o2.classList.add('success-text');
+                o2.innerText="Valid email!";
+                e.classList.add('success-field')
+                email_state=1;
+            }
+        }
+        link.oninput=()=>
+        {
+            let link_var = link.value;
+            o3.removeAttribute('class');
+            link.removeAttribute('class');
+            
+            if(!link_var)
+            {
+                o3.classList.add('warning-text');
+                o3.innerText="This field is required!";
+                link.classList.add('warning-field');
+                link_state=0;
+
+            }
+            else if(!/^www.[A-Za-z0-9]+.com$/.test(link_var))
+            {
+                o3.classList.add('warning-text');
+                o3.innerText="Invalid URL!";
+                link.classList.add('warning-field');
+                link_state=0;
+
+            }
+            else
+            {
+                o3.classList.add('success-text');
+                o3.innerText="Valid URL!";
+                link.classList.add('success-field')
+                link_state=1;
+            }
+
+
+        }
+        msg.oninput = ()=>
+        {
+            let msg_var = msg.value;
+            o4.removeAttribute('class');
+            msg.removeAttribute('class');
+            if(!msg_var)
+            {
+                o4.classList.add('warning-text');
+                o4.innerText="This field is required!";
+                msg.classList.add('warning-field');
+                msg_state=0;
+
+            }
+            else
+            {
+                o4.classList.add('success-text');
+                o4.innerText="Valid Message!";
+                msg.classList.add('success-field')
+                msg_state=1;
+            }
+        }
+
+        submit.onclick = ()=>
+        {
+            if(name_state==1 && email_state==1 && link_state==1 && msg_state==1)
+            {
+                location.assign("https://ethnus.com/")
+            }
+
+
+        }
     </script>
 </body>
-
 </html>
