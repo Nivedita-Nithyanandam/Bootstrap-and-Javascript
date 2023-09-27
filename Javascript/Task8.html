@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_TASK_8</title>
+    <style>
+        #box
+        {
+            background: rgb(250,250,193);
+            background: linear-gradient(180deg, rgba(250,250,193,1) 15%, rgba(212,116,170,1) 100%);
+            min-height: 75vh;
+            min-width: 70vw;
+            padding-bottom: 20vh;
+        }
+        #title
+        {
+            padding-top: 20px;
+            color: rgb(14,10,231);
+            font-size: 150%;
+            font-weight: 700;
+        }
+
+        #label
+        {
+            font-weight: 600;
+        }
+        #label-field
+        {
+            text-align: end;
+        }
+        #input-field
+        {
+            width: 38cqw;
+            
+        }
+        .field
+        {
+            width: 25cqw;
+            padding-right: 2%;
+            margin-right: auto;
+        }
+        
+        td
+        {
+            padding-bottom:2%;
+            
+            
+        }
+        input:focus,textarea:focus
+        {
+            outline:none;
+        }
+        
+        #register
+        {
+            border: 2px solid black;
+            border-radius: 50px;
+            width: fit-content;
+            padding-left:4%;
+            padding-right:4%;
+            font-size: large;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+        #none
+        {
+            color:white;
+        }
+        .checkers
+        {
+            padding-left: 2%;
+        }
+        .w-text
+        {
+            color: red !important;
+        }
+        .w-border
+        {
+            border:2px solid red !important;
+        }
+        .s-text
+        {
+            color: green !important;
+        }
+        .s-border
+        {
+            border:2px solid green !important;
+        }
+        .a-text {
+            color: hsl(51, 100%, 50%) !important;
+        }
+
+        .a-border {
+            border:2px solid hsl(48, 100%, 50%) !important;
+        }
+        a[disabled]
+        {
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p align="center" id="title">
+            Registration Form
+        </p>
+        <form novalidate autocomplete="off" id="form">  
+            <table align="center">
+                <tr>
+                    <td id="label-field">
+                        <label id='label' for="first_name">First Name</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field' type="text" id="first_name">
+                        <span class="checkers" id ="first_name_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="last_name">Last Name</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field' type="text" id="last_name">
+                        <span class="checkers" id ="last_name_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="email">Email</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field'type="email" id="email">
+                        <span class="checkers" id ="email_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="pwd">Password</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field'type="password" id="pwd">
+                        <span class="checkers" id ="pwd_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="rpwd">Re-enter Password</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field'type="password" id="rpwd">
+                        <span class="checkers" id ="rpwd_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="sex">Gender</label>
+                    </td>
+                    <td style="text-align: start;">
+                        <input type="radio" name="sex" id="male">
+                        <label for="male" style="font-weight: 100;">Male</label><br>
+                        <input type="radio" name="sex" id="female">
+                        <label for="female" style="font-weight: 100;">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="age">Age</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field'type="text" id="age">
+                        <span class="checkers" id ="age_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="phno">Phone Number</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field'type="text" id="phno">
+                        <span class="checkers" id ="phno_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label' for="address">Address</label>
+                    </td>
+                    <td>
+                        <textarea name="address" id="address" rows="5" style="width: 25cqw;"></textarea>
+                        <span class="checkers" id ="address_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="state">State</label>
+                    </td>
+                    <td id='input-field'>
+                        <input class='field' type="text" id="state">
+                        <span class="checkers" id ="state_check"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label' for="country">Country</label>
+                    </td>
+                    <td>
+                        <select name="country" id="ddl">
+                            <option value="-1">Choose your country</option>
+                            <option value="1">India</option>
+                            <option value="2">USA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="label-field">
+                        <label id='label'for="lang">Lanugages known</label>
+                    </td>
+                    <td style="text-align: start;">
+                        <input type="checkbox" name="lang" id="english">
+                        <label for="english" style="font-weight: 100;">English</label>
+                        <input type="checkbox" name="lang" id="tamil">
+                        <label for="tamil" style="font-weight: 100;">Tamil</label>
+                        <input type="checkbox" name="lang" id="telugu">
+                        <label for="telugu" style="font-weight: 100;">Telugu</label>
+                        <input type="checkbox" name="lang" id="kanada">
+                        <label for="kanada" style="font-weight: 100;">Kanada</label>
+                    </td>
+                </tr>
+            </table>
+
+            <p align="center"> 
+                <input type="checkbox" name="declare" id="declare" required>
+                <label for="declare" id="dec-text">Hereby I declare all the given details are true</label>
+            </p>
+            <p align="right" style="padding-right: 20%;">
+                Log-in to <a href="https://ethnus.com/">Ethnus</a> website
+            </p>
+
+            <p align="center">
+                <button type="submit" id="register">REGISTER</button>
+            </p>
+            <p align="center" id="voi" ></p>
+        </form>
+    </div>
+
+    <script>
+        const fn = document.getElementById("first_name")
+        const ln = document.getElementById("last_name")
+        const em = document.getElementById("email")
+        const pwd = document.getElementById("pwd")
+        const rpwd = document.getElementById("rpwd")
+        const sex = document.getElementById("sex")
+        const age = document.getElementById("age")
+        const phno = document.getElementById("phno")
+        const add = document.getElementById("address")
+        const state = document.getElementById("state")
+        const country = document.getElementById("country")
+        const lang = document.getElementById("lang")
+        const declare = document.getElementById("declare")
+        const declare_text = document.getElementById("dec-text")
+        const register = document.getElementById("register")
+        const fnc = document.getElementById("first_name_check")
+        const lnc = document.getElementById("last_name_check")
+        const emc = document.getElementById("email_check")
+        const pwdc = document.getElementById("pwd_check")
+        const rpwdc = document.getElementById("rpwd_check")
+        const agec = document.getElementById("age_check")
+        const phnoc = document.getElementById("phno_check")
+        const addc = document.getElementById("address_check")
+        const statec = document.getElementById("state_check")
+        const link = document.getElementById("none")
+        const form = document.getElementById('form')
+        const output = document.getElementById('voi')
+        let fns,lns,ems,pwds,rpwds,ages,phnos,adds,states
+        function handleForm(event) { event.preventDefault(); } 
+        form.addEventListener('submit', handleForm);
+
+
+        fn.oninput =()=>
+        {
+            fnc.classList.remove('w-text')
+            fn.classList.remove('w-border')
+            fnc.classList.remove('s-text')
+            fn.classList.remove('s-border')
+            let fnv = fn.value
+            if(!fnv)
+            {
+                fnc.innerText='Required'
+                fnc.classList.add('w-text')
+                fn.classList.add('w-border')
+                fns=0
+            }
+            else if(!/^[A-Za-z ]+$/.test(fnv))
+            {
+                fnc.classList.add('w-text');
+                fnc.innerText='Invalid';
+                fn.classList.add('w-border')
+                fns=0
+            }
+            else
+            {
+                fnc.classList.add('s-text');
+                fnc.innerText='Valid'
+                fn.classList.add('s-border')
+                fns=1
+            }
+            
+        }
+        ln.oninput =()=>
+        {
+            lnc.classList.remove('w-text')
+            ln.classList.remove('w-border')
+            lnc.classList.remove('s-text')
+            ln.classList.remove('s-border')
+            let lnv = ln.value
+            if(!lnv)
+            {
+                lnc.innerText='Required!'
+                lnc.classList.add('w-text')
+                ln.classList.add('w-border')
+                lns=0
+            }
+            else if(!/^[A-Za-z ]+$/.test(lnv))
+            {
+                lnc.classList.add('w-text');
+                lnc.innerText='Invalid!';
+                ln.classList.add('w-border')
+                lns=0
+            }
+            else
+            {
+                lnc.classList.add('s-text');
+                lnc.innerText='Valid!'
+                ln.classList.add('s-border')
+                lns=1
+            }
+            
+        }
+        em.oninput =()=>
+        {
+            emc.classList.remove('w-text')
+            em.classList.remove('w-border')
+            emc.classList.remove('s-text')
+            em.classList.remove('s-border')
+            let emv = em.value
+            if(!emv)
+            {
+                emc.innerText='Required!'
+                emc.classList.add('w-text')
+                em.classList.add('w-border')
+                ems=0
+            }
+            else if(!/^[0-9a-zA-Z]+[@]{1}[a-zA-Z]+[\.]{1}com$/.test(emv))
+            {
+                emc.classList.add('w-text');
+                emc.innerText='Invalid!';
+                em.classList.add('w-border')
+                ems=0
+            }
+            else
+            {
+                emc.classList.add('s-text');
+                emc.innerText='Valid!'
+                em.classList.add('s-border')
+                ems=1
+            }
+            
+        }
+
+        pwd.oninput =()=>
+        {
+            pwdc.classList.remove('w-text')
+            pwd.classList.remove('w-border')
+            pwdc.classList.remove('s-text')
+            pwd.classList.remove('s-border')
+            pwdc.classList.remove('a-text')
+            pwd.classList.remove('a-border')
+            
+
+            let pwdv = pwd.value
+            let rpwdv = rpwd.value
+
+            if(!pwdv && !rpwdv)
+            {
+                pwdc.innerText='Required!'
+                pwdc.classList.add('w-text')
+                pwd.classList.add('w-border')
+                pwds=0
+
+            }
+            else if (!pwdv && rpwdv)
+            {
+                pwdc.innerText='Required!'
+                pwdc.classList.add('w-text')
+                pwd.classList.add('w-border')
+                rpwdc.innerText=''
+                pwds=0
+            }
+            else if((pwdv && rpwdv) && rpwdv!=pwdv)
+            {
+                rpwdc.classList.remove('w-text')
+                rpwd.classList.remove('w-border')
+                rpwdc.classList.remove('s-text')
+                rpwd.classList.remove('s-border')
+                rpwdc.classList.remove('a-text')
+                rpwd.classList.remove('a-border')
+                rpwdc.classList.add('a-text');
+                rpwdc.innerText = "Mismatching Password!";
+                rpwd.classList.add('a-border')
+                pwds=0
+            }
+            else if((pwdv && rpwdv) && rpwdv==pwdv)
+            {
+                rpwdc.classList.remove('w-text')
+                rpwd.classList.remove('w-border')
+                rpwdc.classList.remove('s-text')
+                rpwd.classList.remove('s-border')
+                rpwdc.classList.remove('a-text')
+                rpwd.classList.remove('a-border')
+                rpwdc.classList.add('s-text');
+                rpwdc.innerText = "Valid!";
+                rpwd.classList.add('s-border')
+                pwds=1
+                rpwds=1
+            }
+            if ((pwdv.length) <= 6) {
+                pwdc.classList.add('w-text');
+                pwdc.innerText = "Weak Password!";
+                pwd.classList.add('w-border');
+                pwds=0
+            }
+            else if ((pwdv.length) <= 10) {
+                pwdc.classList.add('a-text');
+                pwdc.innerText = "Strong Password!";
+                pwd.classList.add('a-border')
+                pwds=1
+            }
+            else {
+                pwdc.classList.add('s-text');
+                pwdc.innerText = "Very Strong Password!";
+                pwd.classList.add('s-border')
+                pwds=1
+            }
+        }
+        rpwd.oninput =()=>
+        {
+            rpwdc.classList.remove('w-text')
+            rpwd.classList.remove('w-border')
+            rpwdc.classList.remove('s-text')
+            rpwd.classList.remove('s-border')
+            rpwdc.classList.remove('a-text')
+            rpwd.classList.remove('a-border')
+            
+
+            let rpwdv = rpwd.value
+            let pwdv = pwd.value
+
+            if(rpwdv && !pwdv)
+            {
+                pwdc.classList.remove('w-text')
+                pwd.classList.remove('w-border')
+                pwdc.innerText='Required!'
+                pwdc.classList.add('w-text')
+                pwd.classList.add('w-border')
+                rpwds=0
+                
+            }
+            else if(!rpwdv && pwdv)
+            {
+                rpwdc.innerText='Required!';
+                rpwdc.classList.add('w-text');
+                rpwd.classList.add('w-border');
+                rpwds=0
+
+            }
+            else if ((rpwdv && pwdv) && pwdv!=rpwdv) {
+                rpwdc.classList.add('a-text');
+                rpwdc.innerText = "Mismatching Password!";
+                rpwd.classList.add('a-border');
+                rpwds=0
+
+            }
+            else {
+                rpwdc.classList.add('s-text');
+                rpwdc.innerText = "Valid!";
+                rpwd.classList.add('s-border')
+                rpwds=1
+            }
+        }
+
+        age.oninput =()=>
+        {
+            agec.classList.remove('w-text')
+            age.classList.remove('w-border')
+            agec.classList.remove('s-text')
+            age.classList.remove('s-border')
+            let agev = age.value
+            if(!agev)
+            {
+                agec.innerText='Required!'
+                agec.classList.add('w-text')
+                age.classList.add('w-border')
+                ages=0
+            }
+            else if(!/^[0-9]+$/.test(agev))
+            {
+                agec.classList.add('w-text');
+                agec.innerText='Invalid!';
+                age.classList.add('w-border')
+                ages=0
+            }
+            else
+            {
+                agec.classList.add('s-text');
+                agec.innerText='Valid!'
+                age.classList.add('s-border')
+                ages=1
+            }
+        }
+
+        phno.oninput =()=>
+        {
+            phnoc.classList.remove('w-text')
+            phno.classList.remove('w-border')
+            phnoc.classList.remove('s-text')
+            phno.classList.remove('s-border')
+            let phnov = phno.value
+            
+            if(!phnov)
+            {
+                phnoc.innerText='Required!'
+                phnoc.classList.add('w-text')
+                phno.classList.add('w-border')
+                phnos=0
+            }
+
+            else if(!/^[0-9]+$/.test(phnov))
+            {
+                phnoc.classList.add('w-text');
+                phnoc.innerText='Invalid!';
+                phno.classList.add('w-border')
+                phnos=0
+            }
+            else
+            {
+                phnoc.classList.add('s-text');
+                phnoc.innerText='Valid!'
+                phno.classList.add('s-border')
+                phnos=1
+            }
+            
+        }    
+
+        add.oninput =()=>
+        {
+            addc.classList.remove('w-text')
+            add.classList.remove('w-border')
+            addc.classList.remove('s-text')
+            address.classList.remove('s-border')
+            let addv = add.value
+            
+            if(!addv)
+            {
+                addc.innerText='Required!'
+                addc.classList.add('w-text')
+                add.classList.add('w-border')
+                adds=0
+            }
+            else
+            {
+                addc.classList.add('s-text');
+                addc.innerText='Valid!'
+                add.classList.add('s-border')
+                adds=1
+            }
+        }    
+        state.oninput =()=>
+        {
+            statec.classList.remove('w-text')
+            state.classList.remove('w-border')
+            statec.classList.remove('s-text')
+            address.classList.remove('s-border')
+            let statev = state.value
+            
+            if(!statev)
+            {
+                statec.innerText='Required!'
+                statec.classList.add('w-text')
+                state.classList.add('w-border')
+                states=0
+            }
+
+            else
+            {
+                statec.classList.add('s-text');
+                statec.innerText='Valid!'
+                state.classList.add('s-border')
+                states=1
+            }
+        }    
+        declare.onclick =()=>
+        {
+            declare_text.classList.remove('w-text')
+        }
+        register.onmouseover =()=>
+        {
+            if(fns==1 && lns==1 && ems==1 && pwds==1 && rpwds==1 && ages==1 && phnos==1 && adds==1 && states==1)
+            {
+                output.removeAttribute('class');
+                output.innerText=''
+                if(declare.checked)
+                {
+                  register.onclick =()=>
+                  {
+                    location.assign("https://ethnus.com/")
+                  }
+
+                }
+                else
+                {
+                    declare_text.classList.add('w-text')
+                    link.href='';
+                    link.setAttribute('disabled',true) 
+                    
+                }
+            }
+            else
+            {
+                output.classList.add('w-text')
+                output.innerText='Form Invalid!'
+            }
+        }
+       
+       
+    </script>
+</body>
+</html>

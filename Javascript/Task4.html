@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_TASK_4</title>
+</head>
+
+<body>
+    <p>
+        <button id="date">show date</button>
+    <p id="dateoutput"></p>
+    </p>
+    <p>
+        <button id="time">show Time</button>
+    <p id="timeoutput"></p>
+    </p>
+
+    <script>
+        const date = document.getElementById("date");
+        const time = document.getElementById("time");
+        const dateoutput = document.getElementById("dateoutput");
+        const timeoutput = document.getElementById("timeoutput");
+
+        function monther(num) {
+            if (num == 0) 
+                return "January";
+            else if (num == 1)
+                return "February";
+            else if (num == 2)
+                return "March";
+            else if (num == 3)
+                return "April";
+            else if (num == 4)
+                return "May";
+            else if (num == 5)
+                return "June";
+            else if (num == 6)
+                return "July";
+            else if (num == 7)
+                return "August";
+            else if (num == 8)
+                return "September";
+            else if (num == 9)
+                return "October";
+            else if (num == 10)
+                return "November";
+            else
+                return "Deember";
+            
+        }
+
+        date.onclick = () => {
+            const d = new Date();
+            dd = d.getDate();
+            mm = monther(d.getMonth());
+            yyyy=d.getFullYear();
+            dateoutput.innerText =`${dd+'/'+mm+'/'+yyyy}`;
+        }
+
+        time.onclick = () => {
+            const t = new Date();
+            timeoutput.innerText = `${t}`;
+        }
+
+
+    </script>
+</body>
+
+</html>

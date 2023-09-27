@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_TASK_2</title>
+</head>
+<body>
+    <p>
+        <label for="in">Example String :</label>
+        <input type="text" id="in">;
+
+        <p>Expected Output : <span id="output"></span></p>
+    </p>
+
+    <script>
+        const take_input = document.getElementById("in");
+        const give_output = document.getElementById("output");
+        take_input.oninput = ()=>
+        {
+            let str = take_input.value;
+
+            if(!str)
+            {
+                give_output.innerText=null;
+                return;
+            }
+            else
+            {
+                str = str.split('').sort().join('');
+                give_output.innerText=`${str}`;
+            }
+        }
+    </script>
+</body>
+</html>
